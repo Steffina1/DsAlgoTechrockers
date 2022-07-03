@@ -4,10 +4,11 @@ import static org.testng.Assert.assertEquals;
 //import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.chrome.ChromeDriver;
-import ds_Algo.Hooks;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageClasses.ArrayPC;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 import pageClasses.StackPC;
 
@@ -19,11 +20,6 @@ public class StackDS {
 	public void the_user_is_in_the_home_page_after_logged_in() {
 		stackpage = new StackPC(driver);
 		stackpage.clickhomeGetStarted();
-	
-		//WebDriverManager.chromedriver().setup();
-		//this.driver= driver;
-		//driver = new ChromeDriver();
-		//driver.get("https://dsportalapp.herokuapp.com/home");
 	   
 	}
 	@When("The user gets the validdata from the datasheet with {string} and {string}")
@@ -31,6 +27,7 @@ public class StackDS {
 		stackpage.clicksignIn();
 		stackpage.enterusername(testId, sheetName);
 		stackpage.enterpassword(testId, sheetName);
+		stackpage.clicklogin();
 	}
 
 	@When("The user clicks stack button in the home page")
@@ -39,16 +36,23 @@ public class StackDS {
 		stackpage.clickstackGS();
 	}
 
-	@Then("The user should be directed to Stack Page")
-	public void the_user_should_be_directed_to_stack_page(String stackpageText) {
+	@Then("The user should be directed to Stack Page with {string}")
+	public void the_user_should_be_directed_to_stack_page_with(String stackpageText) {
 		//String stackText = driver.findElement(By.xpath("//h4[contains(text(),'Stack')]")).getText();
 		stackpage.stackPage(stackpageText);
 		assertEquals(stackpageText, "Stack");
 	}
 
-	@Given("The user is in the Stack page after logged in")
-	public void the_user_is_in_the_stack_page_after_logged_in() {
-		System.out.println("------"+"user is in Stack page"+ "-------");
+	@Given("The user is in the Stack page after logged in with input from data sheet under {string} and {string}")
+	public void the_user_is_in_the_stack_page_after_logged_in_with_input_from_data_sheet_under_and(String testId, String sheetName) {
+		//System.out.println("------"+"user is in Stack page"+ "-------");
+		stackpage = new StackPC(driver);
+		stackpage.clickhomeGetStarted();
+		stackpage.clicksignIn();
+		stackpage.enterusername(testId, sheetName);
+		stackpage.enterpassword(testId, sheetName);
+		stackpage.clicklogin();
+		stackpage.clickstackGS();
 	   	}
 
 	@When("The user clicks operations in Stack button")
