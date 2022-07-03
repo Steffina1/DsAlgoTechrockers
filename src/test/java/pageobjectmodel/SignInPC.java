@@ -1,12 +1,14 @@
 package src.test.java.pageobjectmodel;
 
 //import org.openqa.selenium.By;
+//import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ds_Algo.ExcelDsAlgo;
-import ds_Algo.Hooks;
+import stepDefinition.Hooks;
+
 
 
 
@@ -15,19 +17,21 @@ public class SignInPC {
 	 WebDriver driver = Hooks.driver;
 	ExcelDsAlgo signinexcel;
 
-	@FindBy(xpath="/button[@class='btn']") WebElement homeGetStarted;
 	//@FindBy(xpath="//a[@href='/login']") WebElement signIn;
+	@FindBy(xpath="//button[@class='btn']") WebElement homeGetStarted;
 	@FindBy(xpath="//div[@id='navbarCollapse']//ul/a[3]") WebElement signin;
 	@FindBy(xpath="//input[@id='id_username']") WebElement username;
-	@FindBy(xpath="//input[@id='id_password1") WebElement password;
+	@FindBy(xpath="//input[@id='id_password']") WebElement password;
 	@FindBy(xpath="//input[@type='submit']") WebElement login;
 	@FindBy(xpath="//div[@class='alert alert-primary']") WebElement LoggedIn;
+	@FindBy(xpath="//*[@class='alert alert-primary']") WebElement Loggederror;
 	
 
 	
 	public SignInPC(WebDriver driver) {
-		PageFactory.initElements(driver, this);
 		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	
 		
 		
 	}
@@ -46,9 +50,7 @@ public class SignInPC {
 	
 		public void enterpassword(String testId, String sheetName) {
 			signinexcel = new ExcelDsAlgo(testId,sheetName);	
-		password.sendKeys(signinexcel.GetPassword());
-		
-	}
+		password.sendKeys(signinexcel.GetPassword()); }
 	
 	public void clicklogin() {
 		login.click();
@@ -62,5 +64,11 @@ public class SignInPC {
 		
 	}
 	
-	
+public String loggederror(String outputtext) {
+		
+		String loggederrormsg  =Loggederror.getText();
+		//assertEquals(loggedInPage, "You are logged in");
+		return loggederrormsg;
+		
+	}
 }
