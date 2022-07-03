@@ -44,7 +44,6 @@ public class ArrayPC {
 		PageFactory.initElements(driver, this);
 	
 	}
-	
 	public void clickhomeGetStarted() {
 		//driver.findElement(By.xpath("//button[@class='btn']")).click();
 		homeGetStarted.click();
