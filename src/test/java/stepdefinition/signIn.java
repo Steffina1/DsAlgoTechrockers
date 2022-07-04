@@ -1,4 +1,4 @@
-package src.test.java.stepdefinition;
+package  stepdefinition;
 
 import static org.testng.Assert.assertEquals;
 import java.time.Duration;
@@ -10,13 +10,13 @@ import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.chrome.ChromeDriver;
-//import ds_Algo.ExcelDsAlgo;
+//import ds_Algo.Excelsheet;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjectmodel.SignInPC;
 //import io.github.bonigarcia.wdm.WebDriverManager;
-import pageClasses.SignInPC;
 
 
 
@@ -65,7 +65,7 @@ public class signIn {
 	
 	@When("The user gets the data from the datasheet with {string} and {string}") 
 	public void the_user_gets_the_data_from_the_datasheet_with_and(String testId, String sheetName) {
-	 // login = new ExcelDsAlgo(testId,sheetName);
+	 // login = new Excelsheet(testId,sheetName);
 	  
 	  signin.enterusername(testId, sheetName);
 	  signin.enterpassword(testId, sheetName);

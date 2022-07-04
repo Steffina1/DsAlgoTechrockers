@@ -1,4 +1,4 @@
-package src.test.java.stepdefinition;
+package  stepdefinition;
 
 import static org.testng.Assert.assertEquals;
 
@@ -11,8 +11,8 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjectmodel.ArrayPC;
 //import io.github.bonigarcia.wdm.WebDriverManager;
-import pageClasses.ArrayPC;
 
 
 public class ArrayDS {

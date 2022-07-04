@@ -1,4 +1,4 @@
-package src.test.java.pageobjectmodel;
+package  pageobjectmodel;
 
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.By;
@@ -6,8 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ds_Algo.ExcelDsAlgo;
-import stepDefinition.Hooks;
+
+import stepdefinition.Excelsheet;
+import stepdefinition.Hooks;
+
 
 
 
@@ -15,7 +17,7 @@ import stepDefinition.Hooks;
 public class SignInPC {
 	//public WebDriver driver;
 	 WebDriver driver = Hooks.driver;
-	ExcelDsAlgo signinexcel;
+	Excelsheet signinexcel;
 
 	//@FindBy(xpath="//a[@href='/login']") WebElement signIn;
 	@FindBy(xpath="//button[@class='btn']") WebElement homeGetStarted;
@@ -45,12 +47,12 @@ public class SignInPC {
 		
 	}
 	public void enterusername(String testId, String sheetName) {
-		signinexcel = new ExcelDsAlgo(testId,sheetName);
-		username.sendKeys(signinexcel.GetUserName());}
+		signinexcel = new Excelsheet(testId,sheetName);
+		username.sendKeys(signinexcel.readusername());}
 	
 		public void enterpassword(String testId, String sheetName) {
-			signinexcel = new ExcelDsAlgo(testId,sheetName);	
-		password.sendKeys(signinexcel.GetPassword()); }
+			signinexcel = new Excelsheet(testId,sheetName);	
+		password.sendKeys(signinexcel.readpassword()); }
 	
 	public void clicklogin() {
 		login.click();

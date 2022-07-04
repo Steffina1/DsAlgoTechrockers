@@ -1,16 +1,17 @@
-package src.test.java.pageobjectmodel;
+package  pageobjectmodel;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import ds_Algo.ExcelDsAlgo;
-import stepDefinition.Hooks;
+import stepdefinition.Excelsheet;
+import stepdefinition.Hooks;
+
 
 public class LinkedListPC {
 	public WebDriver driver = Hooks.driver;
-	ExcelDsAlgo signinexcel;
+	Excelsheet signinexcel;
 
 	@FindBy(xpath = "//*[@id=\"navbarCollapse\"]/div[1]/div/a")
 	WebElement dataStructureDD;
@@ -85,13 +86,13 @@ public class LinkedListPC {
 	}
 
 	public void enterusername(String testId, String sheetName) {
-		signinexcel = new ExcelDsAlgo(testId, sheetName);
-		username.sendKeys(signinexcel.GetUserName());
+		signinexcel = new Excelsheet(testId, sheetName);
+		username.sendKeys(signinexcel.readusername());
 	}
 
 	public void enterpassword(String testId, String sheetName) {
-		signinexcel = new ExcelDsAlgo(testId, sheetName);
-		password.sendKeys(signinexcel.GetPassword());
+		signinexcel = new Excelsheet(testId, sheetName);
+		password.sendKeys(signinexcel.readpassword());
 
 	}
 
