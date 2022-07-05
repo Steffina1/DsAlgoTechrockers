@@ -79,13 +79,13 @@ public class ArrayPC {
 
 	}
 
-	public void enterusername(String testId, String sheetName) {
-		signinexcel = new Excelsheet(testId, sheetName);
+	public void enterusername(String testid, String sheetname) {
+		signinexcel = new Excelsheet(testid, sheetname);
 		username.sendKeys(signinexcel.readusername());
 	}
 
-	public void enterpassword(String testId, String sheetName) {
-		signinexcel = new Excelsheet(testId, sheetName);
+	public void enterpassword(String testid, String sheetname) {
+		signinexcel = new Excelsheet(testid, sheetname);
 		password.sendKeys(signinexcel.readpassword());
 
 	}

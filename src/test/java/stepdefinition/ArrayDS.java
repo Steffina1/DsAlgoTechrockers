@@ -19,17 +19,17 @@ public class ArrayDS {
 	WebDriver driver = Hooks.driver;
 	ArrayPC arrayPage;
 	
-	@Given("The user is in the home page")
-	public void the_user_is_in_the_home_page() {
+	@Given("The user is in a home page")
+	public void the_user_is_in_a_home_page() {
 		arrayPage = new ArrayPC(driver);
 		arrayPage.clickhomeGetStarted();
 
 	}
 	@When("The user gets the valid data from the datasheet with {string} and {string}")
-	public void the_user_gets_the_valid_data_from_the_datasheet_with_and(String testId, String sheetName) {
+	public void the_user_gets_the_valid_data_from_the_datasheet_with_and(String testid, String sheetname) {
 		arrayPage.clicksignIn();
-		arrayPage.enterusername(testId, sheetName);
-		arrayPage.enterpassword(testId, sheetName);
+		arrayPage.enterusername(testid, sheetname);
+		arrayPage.enterpassword(testid, sheetname);
 		arrayPage.clicklogin();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
@@ -49,13 +49,13 @@ public class ArrayDS {
 	}
 
 	@Given("The user is signed in to the array with input from data sheet under {string} and {string}")
-	public void the_user_is_signed_in_to_the_array_with_input_from_data_sheet_under_and(String testId, String sheetName) {
+	public void the_user_is_signed_in_to_the_array_with_input_from_data_sheet_under_and(String testid, String sheetname) {
 		//System.out.println("------"+"user is in Array page"+ "-------");
 		arrayPage = new ArrayPC(driver);
 		arrayPage.clickhomeGetStarted();
 		arrayPage.clicksignIn();
-		arrayPage.enterusername(testId, sheetName);
-		arrayPage.enterpassword(testId, sheetName);
+		arrayPage.enterusername(testid, sheetname);
+		arrayPage.enterpassword(testid, sheetname);
 		arrayPage.clicklogin();
 		arrayPage.clickArrayGS();
 		
