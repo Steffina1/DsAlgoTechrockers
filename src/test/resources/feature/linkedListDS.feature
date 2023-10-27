@@ -4,7 +4,7 @@ Feature: Linked List
 @testLL001
    Scenario Outline: Login to the application with valid credentials. 
     Given The user is in the home Page after logged in
-    When  When The user gets the validData from the datasheet with "<testId>" and "<sheetName>"
+    When  The user gets the validData from the datasheet with "<testId>" and "<sheetName>"
     And The user clicks Linked List  button in the home page 
     Then The user should be directed to Linked List  Page with "Linked List"
     
